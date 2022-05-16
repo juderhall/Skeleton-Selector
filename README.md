@@ -1,2 +1,0 @@
-README
-Testing GitHub Collaboration
