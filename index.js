@@ -1,7 +1,8 @@
 let incrementButton = document.querySelector("#incrementButton")
 
-console.log(incrementButton)
+incrementValue = 1
 
 incrementButton.addEventListener('click', () => {
-    console.log("This button is working!")
+    axios.put("http://localhost:4000/api/skelliesNum", incrementValue)       
 })
+
