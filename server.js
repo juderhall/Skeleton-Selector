@@ -20,12 +20,20 @@ app.put("/api/skelliesNum", (req, res) => {
 })
 
 app.get("/api/decrementMode", (req, res) => {
-    console.log(decrementMode)
+    //cconsole.log(decrementMode)
     res.status(200).send({decrementMode})
 })
 
 app.put("/api/decrementMode", (req, res) => {
-    let decrementMode = red.body
+    let changeDecrementMode = req.body
+    console.log(changeDecrementMode)
+    console.log(req.body)
+    //this bit of code makes console text... invisible?
+    /*
+    decrementMode = changeDecrementMode
+    console.log(decrementMode)
+    res.sendStatus(200)
+    */
 })
 
 

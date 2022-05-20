@@ -14,8 +14,9 @@ incrementButton.addEventListener('click', () => {
         })      
 })
 
-setInterval(setDecrementMode, 30000)
+//setInterval(setDecrementMode, 30000)
 
+/*
 function setDecrementMode() {
     axios.get("http://localhost:4000/api/decrementMode")
         .then(function (response) {
@@ -27,3 +28,14 @@ function setDecrementMode() {
             }
         })
 }
+*/
+
+decrementButton.addEventListener('click', () => {
+    axios.put("http://localhost:4000/api/decrementMode", false)
+    decrementButton.innerHTML = "Decrement Mode is off"
+    axios.get("http://localhost:4000/api/decrementMode")
+        .then(function (response) {
+            const {decrementMode} = response.data
+            console.log(decrementMode)
+        })
+    })
