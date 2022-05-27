@@ -2,6 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const bodyParser = require("body-parser")
 const app = express()
+app.use(express.json())
 app.use(cors())
 app.use(bodyParser.text({type:"*/*"}));
 
@@ -13,27 +14,27 @@ app.get("/api/skelliesNum", (req, res) => {
 })
 
 app.put("/api/skelliesNum", (req, res) => {
-    let incrementValue = req.body
-    incrementValue = parseInt(incrementValue)
-    skelliesNum = skelliesNum + incrementValue
-    res.sendStatus(200)
+    let changeValue = req.body
+    if (changeValue === 'object') {
+        console.log("gay panic")
+    } 
+    console.log(changeValue)
+    changeValue = parseInt(changeValue)
+    console.log(changeValue)
+    skelliesNum = skelliesNum + changeValue
+    console.log(skelliesNum)
+    res.status(200).send(skelliesNum.toString())
 })
 
 app.get("/api/decrementMode", (req, res) => {
-    //cconsole.log(decrementMode)
     res.status(200).send({decrementMode})
 })
 
 app.put("/api/decrementMode", (req, res) => {
-    let changeDecrementMode = req.body
-    console.log(changeDecrementMode)
-    console.log(req.body)
-    //this bit of code makes console text... invisible?
-    /*
+    let changeDecrementMode = req.body.decrementMode
     decrementMode = changeDecrementMode
     console.log(decrementMode)
     res.sendStatus(200)
-    */
 })
 
 
