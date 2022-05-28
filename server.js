@@ -24,14 +24,14 @@ app.put("/api/skelliesNum", (req, res) => {
 })
 
 app.get("/api/decrementMode", (req, res) => {
-    console.log(" get " + decrementMode)
+    //console.log(" get " + decrementMode)
     res.status(200).send({decrementMode})
 })
 
 app.put("/api/decrementMode", (req, res) => {
     let changeDecrementMode = req.body.decrementMode
     decrementMode = changeDecrementMode
-    console.log(" put " + decrementMode)
+    //console.log(" put " + decrementMode)
     res.sendStatus(200)
 })
 

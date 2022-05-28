@@ -18,18 +18,10 @@ decrementValue = "-30"
 
 let decrementButton = document.querySelector("#decrementButton")
 
-function setDecrementMode() {
-    axios.get("http://localhost:4000/api/decrementMode")
-        .then(function (response) {
-            const {decrementMode} = response.data
-            if (decrementMode === false) {
-                axios.put("http://localhost:4000/api/decrementMode", {decrementMode:true})
-                decrementButton.innerHTML = "Decrement Mode is On"
-            }
-        })
-}
-
-//setInterval(setDecrementMode, 30000)
+decrementButton.addEventListener('click', () => {
+    decrementButton.style.display = "none"
+    axios.put("http://localhost:4000/api/decrementMode", {decrementMode:false})
+})
 
 function decrement() {
     axios.get("http://localhost:4000/api/decrementMode")
@@ -42,31 +34,14 @@ function decrement() {
                     })
             }})
 }    
-            
-setInterval(decrement, 5000)
-
-//Basic Decrement Off Code
-decrementButton.addEventListener('click', () => {
-    axios.put("http://localhost:4000/api/decrementMode", {decrementMode:false})
-    decrementButton.innerHTML = "Decrement Mode is off"
-    axios.get("http://localhost:4000/api/decrementMode")
-        .then(function (response) {
-            const {decrementMode} = response.data
-        })
-})
-
-//Decrement Mode Button
-
-let decrementButtonTwo = document.querySelector("#decrementButtonTwo")
-
-decrementButtonTwo.addEventListener('click', () => {
-    decrementButtonTwo.style.display = "none"
-    axios.put("http://localhost:4000/api/decrementMode", {decrementMode:false})
-})
-
+    
 function unhideButton() {
     decrementButtonTwo.style.display = "inline"
     axios.put("http://localhost:4000/api/decrementMode", {decrementMode:true})
 }
 
-setInterval(unhideButton, 5000)
+setInterval(decrement, 5000)
+setInterval(unhideButton, 10000)
+
+
+
