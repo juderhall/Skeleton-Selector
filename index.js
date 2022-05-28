@@ -44,6 +44,5 @@ decrementButton.addEventListener('click', () => {
     axios.get("http://localhost:4000/api/decrementMode")
         .then(function (response) {
             const {decrementMode} = response.data
-            console.log(decrementMode)
         })
 })
