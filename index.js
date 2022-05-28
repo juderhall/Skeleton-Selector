@@ -1,9 +1,10 @@
+//Base Interface Code
 let numDisplay = document.querySelector("#numDisplay")
-let incrementButton = document.querySelector("#incrementButton")
-let decrementButton = document.querySelector("#decrementButton")
 
+//Basic Increment Code 
 incrementValue = 1
-decrementValue = "-30"
+
+let incrementButton = document.querySelector("#incrementButton")
 
 incrementButton.addEventListener('click', () => {
     axios.put("http://localhost:4000/api/skelliesNum", incrementValue)
@@ -12,8 +13,10 @@ incrementButton.addEventListener('click', () => {
         })      
 })
 
-setInterval(setDecrementMode, 10000)
-setInterval(decrement, 5000)
+//Basic Decrement Code
+decrementValue = "-30"
+
+let decrementButton = document.querySelector("#decrementButton")
 
 function setDecrementMode() {
     axios.get("http://localhost:4000/api/decrementMode")
@@ -25,6 +28,8 @@ function setDecrementMode() {
             }
         })
 }
+
+setInterval(setDecrementMode, 30000)
 
 function decrement() {
     axios.get("http://localhost:4000/api/decrementMode")
@@ -38,6 +43,9 @@ function decrement() {
             }})
 }    
             
+setInterval(decrement, 5000)
+
+//Basic Decrement Off Code
 decrementButton.addEventListener('click', () => {
     axios.put("http://localhost:4000/api/decrementMode", {decrementMode:false})
     decrementButton.innerHTML = "Decrement Mode is off"
@@ -46,3 +54,4 @@ decrementButton.addEventListener('click', () => {
             const {decrementMode} = response.data
         })
 })
+
