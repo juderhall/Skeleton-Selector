@@ -1,4 +1,4 @@
-//Base Interface Code
+//Basic Interface Code
 let numDisplay = document.querySelector("#numDisplay")
 
 //Basic Increment Code 
@@ -29,7 +29,7 @@ function setDecrementMode() {
         })
 }
 
-setInterval(setDecrementMode, 30000)
+//setInterval(setDecrementMode, 30000)
 
 function decrement() {
     axios.get("http://localhost:4000/api/decrementMode")
@@ -55,3 +55,18 @@ decrementButton.addEventListener('click', () => {
         })
 })
 
+//Decrement Mode Button
+
+let decrementButtonTwo = document.querySelector("#decrementButtonTwo")
+
+decrementButtonTwo.addEventListener('click', () => {
+    decrementButtonTwo.style.display = "none"
+    axios.put("http://localhost:4000/api/decrementMode", {decrementMode:false})
+})
+
+function unhideButton() {
+    decrementButtonTwo.style.display = "inline"
+    axios.put("http://localhost:4000/api/decrementMode", {decrementMode:true})
+}
+
+setInterval(unhideButton, 5000)
