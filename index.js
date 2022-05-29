@@ -36,12 +36,14 @@ function decrement() {
 }    
     
 function unhideButton() {
-    decrementButtonTwo.style.display = "inline"
-    axios.put("http://localhost:4000/api/decrementMode", {decrementMode:true})
+    if (decrementButton.style.display === "none") {
+        decrementButton.style.display = "inline"
+        decrementButton.style.position = "absolute"
+        decrementButton.style.top = Math.floor(Math.random() * window.innerHeight) + 'px'
+        decrementButton.style.left = Math.floor(Math.random() * window.innerWidth) + 'px'
+        axios.put("http://localhost:4000/api/decrementMode", {decrementMode:true})
+    }
 }
 
 setInterval(decrement, 5000)
 setInterval(unhideButton, 10000)
-
-
-
