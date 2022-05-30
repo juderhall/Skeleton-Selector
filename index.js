@@ -3,14 +3,23 @@ let numDisplay = document.querySelector("#numDisplay")
 
 //Basic Increment Code 
 incrementValue = 1
+timerID
 
 let incrementButton = document.querySelector("#incrementButton")
+let blueO = document.querySelector('#blueO')
+let blueX = document.querySelector('#blueX')
 
 incrementButton.addEventListener('click', () => {
     axios.put("http://localhost:4000/api/skelliesNum", incrementValue)
         .then(function (response) {
             numDisplay.innerHTML = response.data
-        })      
+        }) 
+    blueO.style.display = "none"
+    blueX.style.display = "inline"
+    setTimeout(() => {
+        blueO.style.display = "inline"
+        blueX.style.display = "none"
+    }, 500) 
 })
 
 //Basic Decrement Code
