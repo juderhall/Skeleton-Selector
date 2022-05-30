@@ -17,10 +17,14 @@ incrementButton.addEventListener('click', () => {
 decrementValue = "-30"
 
 let decrementButton = document.querySelector("#decrementButton")
+let redO = document.querySelector('#redO')
+let redX = document.querySelector('#redX')
 
 decrementButton.addEventListener('click', () => {
-    decrementButton.style.display = "none"
     axios.put("http://localhost:4000/api/decrementMode", {decrementMode:false})
+    redO.style.display = "none"
+    redX.style.display = "inline"
+    setTimeout(() => decrementButton.style.display = "none", 500)
 })
 
 function decrement() {
@@ -37,8 +41,10 @@ function decrement() {
     
 function unhideButton() {
     if (decrementButton.style.display === "none") {
-        decrementButton.style.display = "inline"
+        redO.style.display = "inline"
+        redX.style.display = "none"
         decrementButton.style.position = "absolute"
+        decrementButton.style.display = "inline"
         decrementButton.style.top = Math.floor(Math.random() * window.innerHeight) + 'px'
         decrementButton.style.left = Math.floor(Math.random() * window.innerWidth) + 'px'
         axios.put("http://localhost:4000/api/decrementMode", {decrementMode:true})
@@ -46,4 +52,5 @@ function unhideButton() {
 }
 
 setInterval(decrement, 5000)
-setInterval(unhideButton, 10000)
+setInterval(unhideButton, 3000)
+
