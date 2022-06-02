@@ -35,7 +35,11 @@ app.put("/api/decrementMode", (req, res) => {
     res.sendStatus(200)
 })
 
-//app.post("/api/necronomicon")
+app.post("/api/user", (req, res) =>{
+    const {user} = req.body
+    console.log(user)
+    res.status(200)
+})
 
 app.listen(4000, () => console.log("App running on port 4000"))
 

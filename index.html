@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="index.css">
-    <!-- <link rel="fonts" 
-        href="https://fonts.googleapis.com/css2?family=Creepster">" -->
 </head>
 <body>
+    <form action="http://localhost:4000/api/user" method="post">
+        <label for="firstName">First Name</label>
+        <input type="text" firstName="First Name" id="firstName" required>
+        <label for="lastName">Last Name</label>
+        <input type="text" lastName="Last Name" id="lastName" required>
+        <button type="submit">Submit</button>
+    </form>
     <p1 id="numDisplay">0</p1>
     <div></div>
     <button id="incrementButton">
