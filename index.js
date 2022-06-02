@@ -1,9 +1,10 @@
 //Basic Interface Code
 let numDisplay = document.querySelector("#numDisplay")
 
+
+
 //Basic Increment Code 
 incrementValue = 1
-timerID
 
 let incrementButton = document.querySelector("#incrementButton")
 let blueO = document.querySelector('#blueO')
@@ -14,12 +15,14 @@ incrementButton.addEventListener('click', () => {
         .then(function (response) {
             numDisplay.innerHTML = response.data
         }) 
-    blueO.style.display = "none"
-    blueX.style.display = "inline"
-    setTimeout(() => {
-        blueO.style.display = "inline"
-        blueX.style.display = "none"
-    }, 500) 
+   
+    // need to instigate timer reset here. 
+    // blueO.style.display = "none"
+    // blueX.style.display = "inline"
+    // setTimeout(() => {
+    //     blueO.style.display = "inline"
+    //     blueX.style.display = "none"
+    // }, 500) 
 })
 
 //Basic Decrement Code
@@ -46,6 +49,7 @@ function decrement() {
                         numDisplay.innerHTML = response.data
                     })
             }})
+    
 }    
     
 function unhideButton() {
