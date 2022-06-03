@@ -35,7 +35,7 @@ app.put("/api/decrementMode", (req, res) => {
     res.sendStatus(200)
 })
 
-app.post("/api/user", (req, res) =>{
+app.post("/api/user/", (req, res) =>{
     const {user} = req.body
     console.log(user)
     res.status(200)

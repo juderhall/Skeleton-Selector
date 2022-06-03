@@ -1,7 +1,11 @@
 //Basic Interface Code
 let numDisplay = document.querySelector("#numDisplay")
+let userInput = document.getElementById("#userName")
+let submitButton = document.querySelector("#submitButton")
 
-
+submitButton.addEventListener('click', () => {
+    axios.post("http://localhost:4000/api/user", {userInput})
+})
 
 //Basic Increment Code 
 incrementValue = 1
@@ -64,6 +68,6 @@ function unhideButton() {
     }
 }
 
-setInterval(decrement, 5000)
-setInterval(unhideButton, 3000)
+//setInterval(decrement, 5000)
+//setInterval(unhideButton, 3000)
 
