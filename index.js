@@ -1,32 +1,50 @@
 //Basic Interface Code
 let numDisplay = document.querySelector("#numDisplay")
-let userInput = document.getElementById("#userName")
+let userName = document.getElementById("userName")
 let submitButton = document.querySelector("#submitButton")
+let incrementButton = document.querySelector("#incrementButton")
+let necromancerName = document.querySelector("#necromancerName")
 
 submitButton.addEventListener('click', () => {
-    axios.post("http://localhost:4000/api/user", {userInput})
+    let user = userName.value
+    axios.post("http://localhost:4000/api/user", {user})
+        .then(function (response) {
+            console.log(response)
+            necromancerName.innerHTML = response.data.user
+        })
+    setInterval(decrement, 5000)
+    setInterval(unhideButton, 3000)
+    incrementButton.disabled = false;
+    console.log("increment Button disabled: " + incrementButton.disabled)
 })
 
 //Basic Increment Code 
 incrementValue = 1
 
-let incrementButton = document.querySelector("#incrementButton")
 let blueO = document.querySelector('#blueO')
 let blueX = document.querySelector('#blueX')
+
+displayX = () => {
+    blueO.style.display = "none"
+    blueX.style.display = "inline"
+}
+
+displayO = () => {
+    blueO.style.display = "inline"
+    blueX.style.display = "none"
+}
+
+let incrementImgTimer = setTimeout(() => {displayO()}, 500) 
 
 incrementButton.addEventListener('click', () => {
     axios.put("http://localhost:4000/api/skelliesNum", incrementValue)
         .then(function (response) {
             numDisplay.innerHTML = response.data
-        }) 
-   
-    // need to instigate timer reset here. 
-    // blueO.style.display = "none"
-    // blueX.style.display = "inline"
-    // setTimeout(() => {
-    //     blueO.style.display = "inline"
-    //     blueX.style.display = "none"
-    // }, 500) 
+        })  
+    
+    displayX()
+    clearTimeout(incrementImgTimer)
+    incrementImgTimer = setTimeout(() => {displayO()}, 500) 
 })
 
 //Basic Decrement Code
@@ -68,6 +86,5 @@ function unhideButton() {
     }
 }
 
-//setInterval(decrement, 5000)
-//setInterval(unhideButton, 3000)
+
 
