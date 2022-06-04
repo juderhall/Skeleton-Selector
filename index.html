@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <form class="name-popup">
-        <label for="firstName">First Name</label>
-        <input type="text" id="userName" name="firstName" id="firstName" required>
+    <p1 id="necromancerName"></p1>
+    <div id="userNamePopup">
+        <label for="userName">User Name</label>
+        <input type="text" id="userName">
         <button type="submit" id="submitButton">Submit</button>
-    </form>
+    </div>
     <p1 id="numDisplay">0</p1>
     <div></div>
-    <button id="incrementButton">
+    <button id="incrementButton" disabled>
         <img id="blueO" src="blueo.png" style="display:inline" height ="80" width="100" />
         <img id="blueX" src="bluex.png" style="display:none" height ="80" width="100" />
     </button>
