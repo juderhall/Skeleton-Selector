@@ -4,6 +4,9 @@ let userName = document.getElementById("userName")
 let submitButton = document.querySelector("#submitButton")
 let incrementButton = document.querySelector("#incrementButton")
 let necromancerName = document.querySelector("#necromancerName")
+let userNamePopup = document.querySelector('#userNamePopup')
+let hidingLayer = document.querySelector('#hidingLayer')
+let arena = document.querySelector("#arena")
 
 submitButton.addEventListener('click', () => {
     let user = userName.value
@@ -12,6 +15,8 @@ submitButton.addEventListener('click', () => {
             console.log(response)
             necromancerName.innerHTML = response.data.user
         })
+    userNamePopup.classList.add("hidden")
+    hidingLayer.classList.add("hidden")
     setInterval(decrement, 5000)
     setInterval(unhideButton, 3000)
     incrementButton.disabled = false;
@@ -79,6 +84,7 @@ function unhideButton() {
         redO.style.display = "inline"
         redX.style.display = "none"
         decrementButton.style.position = "absolute"
+        //decrementButton.style.position = "relative"
         decrementButton.style.display = "inline"
         decrementButton.style.top = Math.floor(Math.random() * window.innerHeight) + 'px'
         decrementButton.style.left = Math.floor(Math.random() * window.innerWidth) + 'px'
