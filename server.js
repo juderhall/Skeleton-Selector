@@ -10,6 +10,7 @@ app.use(bodyParser.text({type:"*/*"}));
 
 let skelliesNum = 0
 let decrementMode = false
+test = 0
 
 app.get("/api/skelliesNum", (req, res) => {
     res.status(200).send({skelliesNum})
@@ -21,6 +22,9 @@ app.put("/api/skelliesNum", (req, res) => {
         changeValue = changeValue.decrementValue
     }
     changeValue = parseInt(changeValue)
+    console.log(changeValue)
+    test++
+    console.log(test)
     skelliesNum = skelliesNum + changeValue
     res.status(200).send(skelliesNum.toString())
 })
