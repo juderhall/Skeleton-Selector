@@ -1,3 +1,5 @@
+var port_number = server.listen(process.env.PORT || 3000);
+
 const express = require("express")
 const cors = require("cors")
 const bodyParser = require("body-parser")
@@ -43,5 +45,6 @@ app.post("/api/user/", (req, res) =>{
     res.status(200).send({user})
 })
 
-app.listen(4000, () => console.log("App running on port 4000"))
+app.listen(port_number);
+//app.listen(4000, () => console.log("App running on port 4000"))
 
