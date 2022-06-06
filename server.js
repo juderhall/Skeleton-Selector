@@ -1,4 +1,4 @@
-var port_number = server.listen(process.env.PORT || 3000);
+//var port_number = server.listen(process.env.PORT || 3000);
 
 const express = require("express")
 const cors = require("cors")
@@ -45,6 +45,8 @@ app.post("/api/user/", (req, res) =>{
     res.status(200).send({user})
 })
 
-app.listen(port_number);
+//app.listen(port_number);
 //app.listen(4000, () => console.log("App running on port 4000"))
-
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
