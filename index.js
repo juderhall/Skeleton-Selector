@@ -45,7 +45,6 @@ incrementButton.addEventListener('click', () => {
         .then(function (response) {
             numDisplay.innerHTML = response.data
         })  
-    
     displayX()
     clearTimeout(incrementImgTimer)
     incrementImgTimer = setTimeout(() => {displayO()}, 500) 
@@ -76,6 +75,14 @@ function decrement() {
                         numDisplay.innerHTML = response.data
                     })
             }})
+        if (deadPaladin.style.display != "inline") {
+            paladin.style.display = "none"
+            attackingPaladin.style.display = "inline"
+            setTimeout(() => {
+                paladin.style.display = "inline",
+                attackingPaladin.style.display = "none"
+            }, 500)
+        } 
 }    
     
 function unhideButton() {
@@ -90,14 +97,7 @@ function unhideButton() {
     }
 }
 
-//code to change to attacking paladin completely removed from place
-
-// paladin.style.display = "none"
-//     attackingPaladin.style.display = "inline"
-//     setTimeout(() => {
-//     paladin.style.display = "inline",
-//     attackingPaladin.style.display = "none"
-//     }, 500)  
+ 
 
 
 

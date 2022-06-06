@@ -18,6 +18,7 @@
 
 #window {
     display: flex;
+    background-color: #17301c;
     height: 100vh;
     position: fixed;
     width: 100vw;
@@ -26,14 +27,19 @@
 #userNamePopup {
     align-items: center;
     background-color: #2c1c2e;
+    border-top-left-radius: 37px 140px;
+    border-top-right-radius: 23px 130px;
+    border-bottom-left-radius: 110px 19px;
+    border-bottom-right-radius: 120px 24px;
     display: inline-flex;
     flex-direction: column;
-    height: 300px;
+    height: 500px;
     justify-content: center;
     left: 50%;
     margin-left: -150px;
     margin-top: -150px;
     position: fixed;
+    text-align: center;
     top: 50%;
     width: 300px;
     z-index: 2;
@@ -41,7 +47,7 @@
 
 #playerNameHeader {
     color: #93b48b;
-    font-size: 50px;    
+    font-size: 40px;    
 }
 
 #userInterface {
