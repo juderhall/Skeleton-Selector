@@ -20,23 +20,22 @@ submitButton.addEventListener('click', () => {
     setInterval(decrement, 5000)
     setInterval(unhideButton, 3000)
     incrementButton.disabled = false;
-    console.log("increment Button disabled: " + incrementButton.disabled)
 })
 
 //Basic Increment Code 
 incrementValue = 1
 
-let blueO = document.querySelector('#blueO')
-let blueX = document.querySelector('#blueX')
+let necromancer = document.querySelector('#necromancer')
+let activatedNecromancer = document.querySelector('#activatedNecromancer')
 
 displayX = () => {
-    blueO.style.display = "none"
-    blueX.style.display = "inline"
+    necromancer.style.display = "none"
+    activatedNecromancer.style.display = "inline"
 }
 
 displayO = () => {
-    blueO.style.display = "inline"
-    blueX.style.display = "none"
+    necromancer.style.display = "inline"
+    activatedNecromancer.style.display = "none"
 }
 
 let incrementImgTimer = setTimeout(() => {displayO()}, 500) 
@@ -76,14 +75,7 @@ function decrement() {
                     .then(function (response) {
                         numDisplay.innerHTML = response.data
                     })
-                paladin.style.display = "none"
-                attackingPaladin.style.display = "inline"
-                setTimeout(() => {
-                paladin.style.display = "inline",
-                attackingPaladin.style.display = "none"
-                }, 500)
             }})
-    
 }    
     
 function unhideButton() {
@@ -91,13 +83,21 @@ function unhideButton() {
         paladin.style.display = "inline"
         deadPaladin.style.display = "none"
         decrementButton.style.position = "absolute"
-        //decrementButton.style.position = "relative"
         decrementButton.style.display = "inline"
-        decrementButton.style.top = Math.floor(Math.random() * window.innerHeight) + 'px'
-        decrementButton.style.left = Math.floor(Math.random() * window.innerWidth) + 'px'
+        decrementButton.style.top = Math.floor(Math.random() * arena.innerHeight) + 'px'
+        decrementButton.style.left = Math.floor(Math.random() * arena.innerWidth) + 'px'
         axios.put("http://localhost:4000/api/decrementMode", {decrementMode:true})
     }
 }
+
+//code to change to attacking paladin completely removed from place
+
+// paladin.style.display = "none"
+//     attackingPaladin.style.display = "inline"
+//     setTimeout(() => {
+//     paladin.style.display = "inline",
+//     attackingPaladin.style.display = "none"
+//     }, 500)  
 
 
 
