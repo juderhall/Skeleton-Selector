@@ -26,17 +26,17 @@ submitButton.addEventListener('click', () => {
 //Basic Increment Code 
 incrementValue = 1
 
-let blueO = document.querySelector('#blueO')
-let blueX = document.querySelector('#blueX')
+let necromancer = document.querySelector('#necromancer')
+let activatedNecromancer = document.querySelector('#activatedNecromancer')
 
 displayX = () => {
-    blueO.style.display = "none"
-    blueX.style.display = "inline"
+    necromancer.style.display = "none"
+    activatedNecromancer.style.display = "inline"
 }
 
 displayO = () => {
-    blueO.style.display = "inline"
-    blueX.style.display = "none"
+    necromancer.style.display = "inline"
+    activatedNecromancer.style.display = "none"
 }
 
 let incrementImgTimer = setTimeout(() => {displayO()}, 500) 
