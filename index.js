@@ -56,13 +56,14 @@ incrementButton.addEventListener('click', () => {
 decrementValue = "-30"
 
 let decrementButton = document.querySelector("#decrementButton")
-let redO = document.querySelector('#redO')
-let redX = document.querySelector('#redX')
+let paladin = document.querySelector('#paladin')
+let attackingPaladin = document.querySelector('#attackingPaladin')
+let deadPaladin = document.querySelector('#deadPaladin')
 
 decrementButton.addEventListener('click', () => {
     axios.put("http://localhost:4000/api/decrementMode", {decrementMode:false})
-    redO.style.display = "none"
-    redX.style.display = "inline"
+    paladin.style.display = "none"
+    deadPaladin.style.display = "inline"
     setTimeout(() => decrementButton.style.display = "none", 500)
 })
 
@@ -75,14 +76,20 @@ function decrement() {
                     .then(function (response) {
                         numDisplay.innerHTML = response.data
                     })
+                paladin.style.display = "none"
+                attackingPaladin.style.display = "inline"
+                setTimeout(() => {
+                paladin.style.display = "inline",
+                attackingPaladin.style.display = "none"
+                }, 500)
             }})
     
 }    
     
 function unhideButton() {
     if (decrementButton.style.display === "none") {
-        redO.style.display = "inline"
-        redX.style.display = "none"
+        paladin.style.display = "inline"
+        deadPaladin.style.display = "none"
         decrementButton.style.position = "absolute"
         //decrementButton.style.position = "relative"
         decrementButton.style.display = "inline"
