@@ -8,7 +8,6 @@ app.use(bodyParser.text({type:"*/*"}));
 
 let skelliesNum = 0
 let decrementMode = false
-//test = 0
 
 app.get("/api/skelliesNum", (req, res) => {
     res.status(200).send({skelliesNum})
@@ -20,22 +19,17 @@ app.put("/api/skelliesNum", (req, res) => {
         changeValue = changeValue.decrementValue
     }
     changeValue = parseInt(changeValue)
-    //console.log(changeValue)
-    //test++
-    //console.log(test)
     skelliesNum = skelliesNum + changeValue
     res.status(200).send(skelliesNum.toString())
 })
 
 app.get("/api/decrementMode", (req, res) => {
-    //console.log(" get " + decrementMode)
     res.status(200).send({decrementMode})
 })
 
 app.put("/api/decrementMode", (req, res) => {
     let changeDecrementMode = req.body.decrementMode
     decrementMode = changeDecrementMode
-    //console.log(" put " + decrementMode)
     res.sendStatus(200)
 })
 
@@ -43,7 +37,6 @@ app.post("/api/user/", (req, res) =>{
     console.log(req.body)
     let {user} = req.body
     user = user + " the Necromancer"
-    console.log(user)
     res.status(200).send({user})
 })
 
