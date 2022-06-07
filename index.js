@@ -1,6 +1,6 @@
 //Basic Interface Code
 let numDisplay = document.querySelector("#numDisplay")
-let userName = document.getElementById("userName")
+let userNameInput = document.getElementById("userNameInput")
 let submitButton = document.querySelector("#submitButton")
 let incrementButton = document.querySelector("#incrementButton")
 let necromancerName = document.querySelector("#necromancerName")
@@ -9,7 +9,7 @@ let hidingLayer = document.querySelector('#hidingLayer')
 let arena = document.querySelector("#arena")
 
 submitButton.addEventListener('click', () => {
-    let user = userName.value
+    let user = userNameInput.value
     axios.post("http://localhost:4000/api/user", {user})
         .then(function (response) {
             console.log(response)
@@ -91,8 +91,8 @@ function unhideButton() {
         deadPaladin.style.display = "none"
         decrementButton.style.position = "absolute"
         decrementButton.style.display = "inline"
-        decrementButton.style.top = Math.floor(Math.random() * arena.innerHeight) + 'px'
-        decrementButton.style.left = Math.floor(Math.random() * arena.innerWidth) + 'px'
+        decrementButton.style.top = Math.floor((Math.random() * window.innerHeight)) - 150 + 'px'
+        decrementButton.style.left = Math.floor((Math.random() * window.innerWidth)) - 150 + 'px'
         axios.put("http://localhost:4000/api/decrementMode", {decrementMode:true})
     }
 }

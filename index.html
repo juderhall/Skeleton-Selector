@@ -9,38 +9,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="backdrop">
+    <div id="userNamePopup">
+        <label for="userName" id="playerNameHeader">This Necronomicon Belongs to:</label>
+        <input type="text" id="userNameInput">
+        <button type="submit" id="submitButton">Begin</button>
+    </div>
+    <div id="hidingLayer"></div>
     <div id="window">
-        <div id="userNamePopup">
-            <label for="userName" id="playerNameHeader">This Necronomicon Belongs to:</label>
-            <input type="text" id="userName">
-            <button type="submit" id="submitButton">Begin</button>
-        </div>
-        <div id="hidingLayer"></div>
-        <div id="userInterface">
-            <p1 id="necromancerName"></p1>
-            <button id="incrementButton" disabled>
-                <img id="necromancer" src="necromancer.png" style="display:inline" height="150" width="150"/>
-                <img id="activatedNecromancer" src="activatednecromancer.png" style="display:none" height="150" width="150"/>
-            </button>
-            <p1 id="numDisplay">0</p1>
-        </div>
-        <div id="graveYard">
-            <img id="graveStone" src="gravestone.png" height ="150" width="100"/>
-            <img id="graveStone" src="gravestone.png" height ="150" width="100"/>
-            <img id="graveStone" src="gravestone.png" height ="150" width="100"/>
-            <img id="graveStone" src="gravestone.png" height ="150" width="100"/>
-            <img id="graveStone" src="gravestone.png" height ="150" width="100"/> 
-        </div>
-        <div id="arena">
-            <button id="decrementButton" style="display:none">
-                <img id="paladin" src="paladin.png" style="display:inline" height="150" width="150"/>
-                <img id="attackingPaladin" src="attackingpaladin.png" style="display:none" height="150" width="150"/>
-                <img id="deadPaladin" src="deadpaladin.png" style="display:none" height="150" width="150"/>
-            </button>
-        </div>
-        
+        <p1 id="necromancerName"></p1>
+        <button id="incrementButton" disabled>
+            <img id="necromancer" src="necromancer.png" style="display:inline" height="200" width="200"/>
+            <img id="activatedNecromancer" src="activatednecromancer.png" style="display:none" height="200" width="200"/>
+        </button>
+        <p1 id="numDisplay">0</p1>
+        <button id="decrementButton" style="display:none">
+            <img id="paladin" src="paladin.png" style="display:inline" height="150" width="150"/>
+            <img id="attackingPaladin" src="attackingpaladin.png" style="display:none" height="150" width="150"/>
+            <img id="deadPaladin" src="deadpaladin.png" style="display:none" height="150" width="150"/>
+        </button>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="index.js"></script>
     </div>
