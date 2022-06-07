@@ -61,6 +61,7 @@ let deadPaladin = document.querySelector('#deadPaladin')
 decrementButton.addEventListener('click', () => {
     axios.put("http://localhost:4000/api/decrementMode", {decrementMode:false})
     paladin.style.display = "none"
+    attackingPaladin.style.display = "none"
     deadPaladin.style.display = "inline"
     setTimeout(() => decrementButton.style.display = "none", 500)
 })
@@ -77,9 +78,11 @@ function decrement() {
             }})
         if (deadPaladin.style.display != "inline") {
             paladin.style.display = "none"
+            deadPaladin.style.display = "none"
             attackingPaladin.style.display = "inline"
             setTimeout(() => {
                 paladin.style.display = "inline",
+                deadPaladin.style.display = "none",
                 attackingPaladin.style.display = "none"
             }, 500)
         } 
@@ -91,8 +94,8 @@ function unhideButton() {
         deadPaladin.style.display = "none"
         decrementButton.style.position = "absolute"
         decrementButton.style.display = "inline"
-        decrementButton.style.top = Math.floor((Math.random() * window.innerHeight)) - 150 + 'px'
-        decrementButton.style.left = Math.floor((Math.random() * window.innerWidth)) - 150 + 'px'
+        decrementButton.style.top = Math.floor((Math.random() * window.innerHeight) - 150) + 'px'
+        decrementButton.style.left = Math.floor((Math.random() * window.innerWidth) - 150) + 'px'
         axios.put("http://localhost:4000/api/decrementMode", {decrementMode:true})
     }
 }
